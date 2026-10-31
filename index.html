@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="DataNova mobile data bundle shop prototype for Ghana.">
+<title>DataNova — Your Data. Your Connection.</title>
+<style>
+:root{--navy:#101d3a;--blue:#2878ee;--pale:#edf4ff;--ink:#17243b;--muted:#68758b;--line:#e4eaf3;--bg:#f6f8fc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:3}
+.nav{max-width:1080px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:800;font-size:23px;color:var(--navy);text-decoration:none;display:flex;gap:9px;align-items:center}
+.mark{background:var(--blue);color:white;width:36px;height:36px;border-radius:11px;display:grid;place-items:center}
+nav{display:flex;gap:20px}nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+.wrap{max-width:1080px;margin:auto;padding:30px 20px 65px}
+.hero{background:linear-gradient(120deg,#101d3a,#1b4d91);color:white;border-radius:22px;padding:48px;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
+.kicker{font-size:11px;letter-spacing:2px;color:#b8d4ff;font-weight:bold}
+h1{font-size:clamp(36px,5vw,55px);letter-spacing:-2px;line-height:1.05;margin:14px 0}
+.hero p{color:#d8e5f7;line-height:1.7;max-width:500px}
+.cta{display:inline-block;margin-top:12px;background:#3989ff;color:white;text-decoration:none;padding:13px 18px;border-radius:9px;font-weight:bold}
+.heroAside{background:#ffffff17;border:1px solid #ffffff30;border-radius:16px;padding:24px}
+.heroAside strong{font-size:27px;display:block;margin:12px 0}
+.tag{display:inline-block;background:#e9f2ff;color:#1c62c5;padding:7px 11px;border-radius:20px;font-size:11px;font-weight:bold}
+.sectionHead{margin:34px 0 16px}.sectionHead h2{margin:0;font-size:25px}.sectionHead p{margin:7px 0;color:var(--muted);font-size:14px}
+.shop{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:start}
+.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:21px;box-shadow:0 6px 22px #1a31500a}
+label{display:block;font-weight:bold;font-size:13px;margin:15px 0 8px}
+.networks{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.network{padding:13px 6px;background:white;border:1px solid var(--line);border-radius:10px;font-weight:bold;cursor:pointer}
+.network.active{background:var(--pale);border:2px solid var(--blue);color:#1b62c4;padding:12px 5px}
+input{width:100%;padding:13px;border:1px solid #d7dfeb;border-radius:9px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.bundle{background:white;border:1px solid var(--line);border-radius:11px;padding:15px;text-align:left;cursor:pointer}
+.bundle.active{border:2px solid var(--blue);background:#f5f9ff;padding:14px}
+.bundle b{display:block;font-size:19px}.bundle small{color:var(--muted)}
+.price{color:var(--blue);font-weight:bold;margin-top:10px}
+.summary{position:sticky;top:80px}.row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.total{font-size:20px;font-weight:bold}
+.note{background:#fff6df;border:1px solid #f0dfb6;color:#73551a;padding:12px;border-radius:9px;font-size:12px;line-height:1.5;margin-top:14px}
+button.primary{width:100%;padding:13px;border:0;border-radius:9px;background:var(--blue);color:white;font-weight:bold;font-size:15px;margin-top:15px;cursor:pointer}
+button.primary:disabled{opacity:.45;cursor:not-allowed}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:18px}
+.info article{background:white;border:1px solid var(--line);border-radius:13px;padding:18px}
+.info p{font-size:13px;line-height:1.5;color:var(--muted);margin-bottom:0}
+footer{background:var(--navy);color:#dce7f7;text-align:center;padding:27px 15px;font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:#08152cbb;z-index:5;align-items:center;justify-content:center;padding:18px}
+.modal.open{display:flex}.dialog{max-width:420px;width:100%;background:white;padding:24px;border-radius:16px}
+.dialog button{margin-top:14px}
+@media(max-width:720px){nav{display:none}.hero,.shop{grid-template-columns:1fr}.hero{padding:30px 23px}.summary{position:static}.info{grid-template-columns:1fr}.wrap{padding-top:20px}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<a class="brand" href="#"><span class="mark">⌁</span>DataNova</a>
+<nav><a href="#home">Home</a><a href="#shop">Buy Data</a><a href="#how">How it works</a><a href="#contact">Contact</a></nav>
+</div></header>
+<main class="wrap" id="home">
+<section class="hero">
+<div><div class="kicker">SIMPLE • FAST • CONNECTED</div><h1>Your Data.<br>Your Connection.</h1>
+<p>Explore mobile data bundles across supported networks in Ghana. Choose a network, select a package and review your order with ease.</p>
+<a class="cta" href="#shop">Explore bundles →</a></div>
+<div class="heroAside"><span class="tag">DATANOVA GHANA</span><strong>Stay connected.</strong><p>One simple place to explore mobile data options.</p><small>MTN　•　Telecel　•　AT</small></div>
+</section>
+<div class="sectionHead" id="shop"><h2>Choose your data bundle</h2><p>Select your network and package to see your order summary.</p></div>
+<section class="shop">
+<div class="panel">
+<label>1. Select your network</label>
+<div class="networks">
+<button class="network active" data-net="MTN">MTN</button>
+<button class="network" data-net="Telecel">Telecel</button>
+<button class="network" data-net="AT">AT</button>
+</div>
+<label for="phone">2. Recipient phone number</label>
+<input id="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="e.g. 0240000000">
+<label>3. Select a bundle</label>
+<div class="cards" id="cards"></div>
+<label for="email">Email address (optional)</label>
+<input id="email" type="email" placeholder="you@example.com">
+</div>
+<aside class="panel summary">
+<h3 style="margin-top:0">Order summary</h3>
+<div class="row"><span>Network</span><b id="snet">MTN</b></div>
+<div class="row"><span>Bundle</span><b id="sbundle">Not selected</b></div>
+<div class="row"><span>Phone</span><b id="sphone">Not entered</b></div>
+<div class="row"><span>Price</span><b id="sprice">GH₵0.00</b></div>
+<div class="row total"><span>Total</span><span id="stotal">GH₵0.00</span></div>
+<div class="note"><b>Prototype only:</b> Bundle sizes and prices are sample placeholders. This site does not collect payments or deliver data yet.</div>
+<button class="primary" id="review" disabled>Review order</button>
+</aside>
+</section>
+<section id="how"><div class="sectionHead"><h2>How DataNova works</h2><p>A simple shopping experience in three steps.</p></div>
+<div class="info">
+<article><b>1. Choose a network</b><p>Select the mobile network for the number receiving the bundle.</p></article>
+<article><b>2. Pick a bundle</b><p>Explore the sample packages and check your order details.</p></article>
+<article><b>3. Confirm your order</b><p>Live checkout can be added after payment and supplier services are configured.</p></article>
+</div></section>
+</main>
+<footer id="contact">© 2026 DataNova. Your Data. Your Connection.<br>Customer support details will be added before launch.</footer>
+<div class="modal" id="modal"><div class="dialog"><h3>Demo order review</h3><p id="modalText"></p><div class="note">This is a demonstration only. No payment will be taken and no data will be sent.</div><button class="primary" id="close">Close</button></div></div>
+<script>
+const products={
+ MTN:[["1 GB",5],["2 GB",10],["5 GB",23],["10 GB",45]],
+ Telecel:[["1 GB",5],["2 GB",10],["5 GB",24],["10 GB",46]],
+ AT:[["1 GB",5],["2 GB",10],["5 GB",22],["10 GB",44]]
+};
+let network="MTN",chosen=null;
+const el=id=>document.getElementById(id);
+function draw(){
+ el("cards").innerHTML="";
+ products[network].forEach(([size,price])=>{
+  const b=document.createElement("button");
+  b.className="bundle"+(chosen&&chosen.size===size?" active":"");
+  b.innerHTML=`<b>${size}</b><small>${network} data bundle</small><div class="price">GH₵${price.toFixed(2)}*</div>`;
+  b.onclick=()=>{chosen={size,price};draw();summary()};
+  el("cards").appendChild(b);
+ });
+}
+function summary(){
+ el("snet").textContent=network;
+ el("sbundle").textContent=chosen?chosen.size:"Not selected";
+ el("sphone").textContent=el("phone").value.trim()||"Not entered";
+ el("sprice").textContent=chosen?"GH₵"+chosen.price.toFixed(2):"GH₵0.00";
+ el("stotal").textContent=el("sprice").textContent;
+ el("review").disabled=!(chosen&&/^0\d{9}$/.test(el("phone").value.trim()));
+}
+document.querySelectorAll(".network").forEach(b=>b.onclick=()=>{
+ network=b.dataset.net;chosen=null;
+ document.querySelectorAll(".network").forEach(x=>x.classList.toggle("active",x===b));
+ draw();summary();
+});
+el("phone").addEventListener("input",summary);
+el("review").onclick=()=>{
+ el("modalText").textContent=`${network} · ${chosen.size} · ${el("phone").value.trim()} · GH₵${chosen.price.toFixed(2)}`;
+ el("modal").classList.add("open");
+};
+el("close").onclick=()=>el("modal").classList.remove("open");
+draw();summary();
+</script>
+</body>
+</html>
